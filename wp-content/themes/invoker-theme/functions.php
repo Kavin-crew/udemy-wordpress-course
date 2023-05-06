@@ -6,6 +6,15 @@ function import_styling(){
     wp_enqueue_style('main_styles', get_theme_file_uri('/build/style-index.css'));
     wp_enqueue_style('extra_styles', get_theme_file_uri('/build/index.css'));
 }
-
 add_action('wp_enqueue_scripts', 'import_styling');
+
+function university_features() {
+
+  register_nav_menu('MainMenu', 'Main Menu');
+  register_nav_menu('FooterMenu', 'Footer Menu');
+
+  add_theme_support('title-tag');
+}
+
+add_action('after_setup_theme', 'university_features');
 ?>
